@@ -1,4 +1,4 @@
 language: objective-c
-xcode_project: TicTacToe/TicTacToe.xcodeproj # path to your xcodeproj folder
-xcode_scheme: TicTacToe
+xcode_project: Games/Games.xcodeproj # path to your xcodeproj folder
+xcode_scheme: Games
 osx_image: xcode9.2
