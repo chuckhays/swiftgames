@@ -11,7 +11,7 @@ services:
 
 before_install:
   - docker build -t chuckhays/swiftgames .
-  - docker run -d chuckhays/swiftgames
+  - docker run -d chuckhays/swiftgames -c "/build/build.sh"
   - docker ps -a
-  - docker run chuckhays/swiftgames
+  - docker run chuckhays/swiftgames -c "/build/build.sh"
 
