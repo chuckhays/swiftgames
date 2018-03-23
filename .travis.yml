@@ -11,7 +11,7 @@ services:
 
 before_install:
   - docker build -t chuckhays/swiftgames .
-  - docker run -d -w /build --privileged chuckhays/swiftgames Games/build.sh 
+  - docker run -d -w /build --privileged chuckhays/swiftgames TicTacToe/build.sh 
   - docker ps -a
-  - docker run -w /build --privileged chuckhays/swiftgames Games/build.sh 
+  - docker run -w /build --privileged chuckhays/swiftgames TicTacToe/build.sh 
 
