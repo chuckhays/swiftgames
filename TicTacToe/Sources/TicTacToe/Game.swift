@@ -20,9 +20,7 @@ public class Game {
 
   public func run() -> Mark {
     // While no one has won, ask the next player for their move.
-
-    var winner = false
-    while !winner {
+    while true {
         // Ask for move.
         let coordinate = self.nextPlayer == .X ?
           self.playerX.move(board: self.board) :
@@ -38,7 +36,10 @@ public class Game {
         }
 
         // Check for winner.
-        winner = true
+        let winningMark = board.winner()
+        if winningMark != .Empty {
+          return winningMark
+        }
 
         // Move to next player.
         if self.nextPlayer == .X {

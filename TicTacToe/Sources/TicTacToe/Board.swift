@@ -56,6 +56,95 @@ public class Board {
     return false
   }
 
+  public func winner() -> Mark {
+    // Check verticals.
+    for col in 1...self.dimension {
+      let mark = self.winner(col:col)
+      if mark != .Empty {
+        return mark
+      }
+    }
+    // Check horizontals.
+    for row in 1...self.dimension {
+      let mark = self.winner(row:row)
+      if mark != .Empty {
+        return mark
+      }
+    }
+
+    // Check diagonals.
+    let diag1 = self.firstDiagonalWinner()
+    if diag1 != .Empty {
+      return diag1
+    }
+    let diag2 = self.secondDiagonalWinner()
+    if diag2 != .Empty {
+      return diag2
+    }
+
+    return .Empty
+  }
+
+  private func winner(row: Int) -> Mark {
+    let firstMark = self.mark(atCoordinate: Coordinate(row: row, col: 1))
+    if firstMark == .Empty {
+      return .Empty
+    }
+    for col in 2...self.dimension {
+        let coordinate = Coordinate(row: row, col: col)
+        let nextMark = self.mark(atCoordinate: coordinate)
+        if nextMark != firstMark {
+          return .Empty
+        }
+    }
+    return firstMark
+  }
+
+  private func winner(col: Int) -> Mark {
+    let firstMark = self.mark(atCoordinate: Coordinate(row: 1, col: col))
+    if firstMark == .Empty {
+      return .Empty
+    }
+    for row in 2...self.dimension {
+        let coordinate = Coordinate(row: row, col: col)
+        let nextMark = self.mark(atCoordinate: coordinate)
+        if nextMark != firstMark {
+          return .Empty
+        }
+    }
+    return firstMark
+  }
+
+  private func firstDiagonalWinner() -> Mark {
+    let firstMark = self.mark(atCoordinate: Coordinate(row: 1, col: 1))
+    if firstMark == .Empty {
+      return .Empty
+    }
+    for next in 2...self.dimension {
+        let coordinate = Coordinate(row: next, col: next)
+        let nextMark = self.mark(atCoordinate: coordinate)
+        if nextMark != firstMark {
+          return .Empty
+        }
+    }
+    return firstMark
+  }
+
+  private func secondDiagonalWinner() -> Mark {
+    let firstMark = self.mark(atCoordinate: Coordinate(row: 1, col: self.dimension))
+    if firstMark == .Empty {
+      return .Empty
+    }
+    for next in 2...self.dimension {
+        let coordinate = Coordinate(row: next, col: self.dimension - next + 1)
+        let nextMark = self.mark(atCoordinate: coordinate)
+        if nextMark != firstMark {
+          return .Empty
+        }
+    }
+    return firstMark
+  }
+
   private func position(atCoordinate: Coordinate) -> Position? {
     for position in self.positions {
       let coordinate = position.coordinate
