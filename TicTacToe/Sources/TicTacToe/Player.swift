@@ -1,4 +1,5 @@
 import Foundation
+import SwiftGlibc
 
 public protocol Player {
   init(mark: Mark)
@@ -6,6 +7,12 @@ public protocol Player {
 }
 
 public class RandomPlayer : Player {
+
+  init(mark: Mark) {
+    self.mark = mark
+  }
+
+  public let mark
 
   public func move(board: Board) -> Coordinate {
     // Find an open spot.

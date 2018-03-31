@@ -3,8 +3,8 @@ import XCTest
 
 class GameTests: XCTestCase {
     func testCreateGame() {
-      let x = RandomPlayer()
-      let o = RandomPlayer()
+      let x = RandomPlayer(mark: .X)
+      let o = RandomPlayer(mark: .O)
       let game1 = Game(playerX: x, playerO: o)
       XCTAssertNotNil(game1)
     }
