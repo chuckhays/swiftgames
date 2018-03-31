@@ -6,8 +6,8 @@ public class Board {
           assert(dimension >= 3)
 
           let
-          emptyRow = [Mark?](count: dimension, repeatedValue: nil),
-          allMarks = [[Mark?]](count: dimension, repeatedValue: emptyRow)
+          emptyRow = [Mark?](repeating: nil, count: dimension),
+          allMarks = [[Mark?]](repeating: emptyRow, count: dimension)
 
           self.init(dimension: dimension, marks: allMarks)
       }
