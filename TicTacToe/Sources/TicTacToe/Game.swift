@@ -39,7 +39,7 @@ public class Game {
 
         // Check for winner.
         winner = true
-        
+
         // Move to next player.
         if self.nextPlayer == .X {
           self.nextPlayer = .O
@@ -48,4 +48,5 @@ public class Game {
         }
     }
   }
+  return self.nextPlayer
 }
