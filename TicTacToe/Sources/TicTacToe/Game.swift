@@ -14,8 +14,8 @@ public class Game {
   }
 
   public let dimension: Int
-  public let player1: Player
-  public let player2: Player
+  public let playerX: Player
+  public let playerO: Player
 
   internal var board: Board
   private var nextPlayer: Mark
@@ -31,7 +31,7 @@ public class Game {
           self.playerO.move(board: self.board)
 
         // Check validity of move.
-        let result = board.setMark(atCoordinate:coordinate mark:self.nextPlayer)
+        let result = board.setMark(atCoordinate:coordinate, mark:self.nextPlayer)
 
         if !result {
           // Error, return other player.
