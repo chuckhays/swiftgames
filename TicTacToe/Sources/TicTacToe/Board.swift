@@ -46,7 +46,7 @@ public class Board {
 
   // Returns true if the set was valid and succeeded.
   public func setMark(atCoordinate: Coordinate, mark: Mark) -> Bool {
-    guard let position = self.position(atCoordinate: atCoordinate) else {
+    guard var position = self.position(atCoordinate: atCoordinate) else {
       return false
     }
     if position.mark == .Empty {

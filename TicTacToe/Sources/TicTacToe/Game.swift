@@ -4,8 +4,6 @@ public class Game {
 
   public init(playerX: Player, playerO: Player, dimension: Int = 3) {
     assert(dimension >= 3)
-    assert(playerX != nil)
-    assert(playerX != nil)
     self.playerX = playerX
     self.playerO = playerO
     self.dimension = dimension
@@ -40,7 +38,8 @@ public class Game {
         }
 
         // Check for winner.
-
+        winner = true
+        
         // Move to next player.
         if self.nextPlayer == .X {
           self.nextPlayer = .O
