@@ -4,4 +4,5 @@ import XCTest
 XCTMain([
     testCase(TicTacToeTests.allTests),
     testCase(BoardTests.allTests),
+    testCase(GameTests.alLTests),
 ])
