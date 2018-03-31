@@ -12,12 +12,8 @@ public class Board {
 
     for row in 1...dimension {
       for col in 1...dimension {
-        let coordinate = Coordinate()
-        coordinate.row = row
-        coordinate.col = col
-        let position = Position()
-        position.coordinate = coordinate
-        position.mark = .Empty
+        let coordinate = Coordinate(row: row, col: col)
+        let position = Position(coordinate: coordinate, mark: .Empty)
         self.positions.append(position)
       }
     }
