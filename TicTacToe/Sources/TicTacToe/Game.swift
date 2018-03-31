@@ -32,13 +32,18 @@ public class Game {
         if !result {
           // Error, return other player.
           print("Invalid move by player")
-
+          return self.nextPlayer == .X ? .O : .X
         }
 
         // Check for winner.
         let winningMark = board.winner()
         if winningMark != .Empty {
           return winningMark
+        }
+
+        // Check for tie.
+        if board.tie() {
+          return .Empty
         }
 
         // Move to next player.

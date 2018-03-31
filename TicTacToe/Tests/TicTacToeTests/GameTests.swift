@@ -3,8 +3,10 @@ import XCTest
 
 class GameTests: XCTestCase {
     func testCreateGame() {
-      //let game1 = Game()
-      //XCTAssertNotNil(game1)
+      let x = RandomPlayer()
+      let o = RandomPlayer()
+      let game1 = Game(playerX: x, playerO: o)
+      XCTAssertNotNil(game1)
     }
 
 

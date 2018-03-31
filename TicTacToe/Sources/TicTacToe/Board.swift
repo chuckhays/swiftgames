@@ -25,16 +25,16 @@ public class Board {
 
   internal var positions: [Position] = []
 
-  public func isEmpty(coordinate: Coordinate) -> Bool {
-    return self.mark(atCoordinate: coordinate) == .Empty
+  public func isEmpty(atCoordinate: Coordinate) -> Bool {
+    return self.mark(atCoordinate: atCoordinate) == .Empty
   }
 
-  public func isX(coordinate: Coordinate) -> Bool {
-    return self.mark(atCoordinate: coordinate) == .X
+  public func isX(atCoordinate: Coordinate) -> Bool {
+    return self.mark(atCoordinate: atCoordinate) == .X
   }
 
-  public func isO(coordinate: Coordinate) -> Bool {
-    return self.mark(atCoordinate: coordinate) == .O
+  public func isO(atCoordinate: Coordinate) -> Bool {
+    return self.mark(atCoordinate: atCoordinate) == .O
   }
 
   public func mark(atCoordinate: Coordinate) -> Mark {
@@ -54,6 +54,11 @@ public class Board {
       return true
     }
     return false
+  }
+
+  public func tie() -> Bool {
+    let emptyPositions = self.positions.filter(isEmptyPosition)
+    return !emptyPositions
   }
 
   public func winner() -> Mark {
@@ -143,6 +148,10 @@ public class Board {
         }
     }
     return firstMark
+  }
+
+  func isEmptyPosition(position: Position) -> Bool {
+    return position.mark != .Empty
   }
 
   private func position(atCoordinate: Coordinate) -> Position? {
