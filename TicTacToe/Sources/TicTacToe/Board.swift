@@ -1,8 +1,13 @@
 import Foundation
 
-public struct Position {
+public class Position {
   public var coordinate: Coordinate
   public var mark: Mark
+
+  public init(coordinate: Coordinate, mark: Mark) {
+    self.coordinate = coordinate
+    self.mark = mark
+  }
 }
 
 public class Board {
@@ -46,7 +51,7 @@ public class Board {
 
   // Returns true if the set was valid and succeeded.
   public func setMark(atCoordinate: Coordinate, mark: Mark) -> Bool {
-    guard var position = self.position(atCoordinate: atCoordinate) else {
+    guard let position = self.position(atCoordinate: atCoordinate) else {
       return false
     }
     if position.mark == .Empty {
@@ -151,7 +156,7 @@ public class Board {
   }
 
   func isEmptyPosition(position: Position) -> Bool {
-    return position.mark != .Empty
+    return position.mark == .Empty
   }
 
   private func position(atCoordinate: Coordinate) -> Position? {

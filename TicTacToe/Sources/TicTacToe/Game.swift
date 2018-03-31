@@ -35,6 +35,8 @@ public class Game {
           return self.nextPlayer == .X ? .O : .X
         }
 
+        //print("Player \(self.nextPlayer) played at \(coordinate)")
+
         // Check for winner.
         let winningMark = board.winner()
         if winningMark != .Empty {
@@ -43,6 +45,7 @@ public class Game {
 
         // Check for tie.
         if board.tie() {
+          //print("Tie")
           return .Empty
         }
 
