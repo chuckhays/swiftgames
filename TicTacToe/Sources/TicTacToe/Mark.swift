@@ -1,5 +1,5 @@
 import Foundation
 
 public enum Mark {
-  X, O
+  case X, O
 }
