@@ -19,7 +19,6 @@ public class Board {
     }
 
     self.dimension = dimension
-    self.marks = marks
   }
 
   public let dimension: Int

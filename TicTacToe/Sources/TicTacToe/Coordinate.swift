@@ -8,6 +8,6 @@ extension Coordinate: Equatable {}
 
 // MARK: Equatable
 
-func ==(lhs: Coordinate, rhs: Coordinate) -> Bool {
+  public func ==(lhs: Coordinate, rhs: Coordinate) -> Bool {
     return lhs.row == rhs.row && lhs.col == rhs.col
-}
+  }

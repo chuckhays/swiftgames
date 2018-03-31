@@ -4,8 +4,8 @@ public class Game {
 
   public init(playerX: Player, playerO: Player, dimension: Int = 3) {
     assert(dimension >= 3)
-    assert(player1 != nil)
-    assert(player2 != nil)
+    assert(playerX != nil)
+    assert(playerX != nil)
     self.playerX = playerX
     self.playerO = playerO
     self.dimension = dimension
