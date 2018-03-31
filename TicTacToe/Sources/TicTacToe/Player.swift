@@ -8,11 +8,11 @@ public protocol Player {
 
 public class RandomPlayer : Player {
 
-  init(mark: Mark) {
+  public required init(mark: Mark) {
     self.mark = mark
   }
 
-  public let mark
+  public let mark : Mark
 
   public func move(board: Board) -> Coordinate {
     // Find an open spot.
@@ -52,6 +52,6 @@ public class RandomPlayer : Player {
 
   func random(_ n:Int) -> Int
   {
-    return Int(random() % n)
+    return Int(SwiftGlibc.random() % n)
   }
 }

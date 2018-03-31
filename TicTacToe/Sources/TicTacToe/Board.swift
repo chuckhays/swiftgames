@@ -58,7 +58,7 @@ public class Board {
 
   public func tie() -> Bool {
     let emptyPositions = self.positions.filter(isEmptyPosition)
-    return !emptyPositions
+    return emptyPositions.count == 0
   }
 
   public func winner() -> Mark {
