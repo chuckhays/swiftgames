@@ -47,6 +47,6 @@ public class Game {
           self.nextPlayer = .X
         }
     }
+    return self.nextPlayer
   }
-  return self.nextPlayer
 }
